@@ -5,5 +5,10 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: 'Alihan Seyhun',
+    description: 'Alihan Seyhun portfolio.',
+    keywords: 'alihan, ari, seyhun, developer, portfolio',
+  },
+  plugins: ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'],
 }
