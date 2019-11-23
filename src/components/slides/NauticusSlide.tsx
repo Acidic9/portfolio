@@ -11,11 +11,13 @@ export default () => (
     </div>
 
     <CaseStudySlide
-      title="Multi-Crypto Currency Exchange"
-      paragraph="A year long development experience working with a team around the world."
+      title="Nauticus"
+      paragraph="A global crypto-currency exchange app
+      built with a team across the world
+      using a huge variety of technologies."
       image={Nauticus}
       backgroundColor="blue-nauticus"
-      textColor="white"
+      textColor="gray-200"
     />
   </div>
 )

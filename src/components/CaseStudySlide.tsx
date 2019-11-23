@@ -7,7 +7,6 @@ interface Props {
   image: string
   backgroundColor?: string
   textColor?: string
-  rtl?: boolean
 }
 
 const CaseStudySlide: React.FunctionComponent<Props> = props => {
@@ -51,45 +50,39 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
   }, [imageSize])
 
   return (
-    <div className="px-8">
+    <div className="px-14">
       <div
         className={
-          'relative flex flex-row items-center h-screen' +
+          'relative flex flex-row items-center px-8 mx-auto w-full h-screen' +
           ' bg-' +
-          (props.backgroundColor || 'white') +
-          (!props.rtl && ' justify-end')
+          (props.backgroundColor || 'white')
         }
       >
-        <ParallaxLayer offset={0.6} speed={0.08}>
-          <div
-            className={
-              'absolute w-4/12 -translate-y-1/2 text-' +
-              (props.textColor || 'black') +
-              (props.rtl
-                ? ' text-right right-0 pr-8'
-                : ' text-left left-0 pl-8')
-            }
-          >
-            <h2 className="mb-5 text-6xl font-bold leading-none">
-              {props.title}
-            </h2>
-            <p>{props.paragraph}</p>
-          </div>
-        </ParallaxLayer>
+        {/* <ParallaxLayer offset={0.6} speed={0.08}> */}
+        <div
+          className={
+            'w-1/3 mr-20 text-left left-0 text-' + (props.textColor || 'black')
+          }
+        >
+          <h2 className="mb-5 text-5xl font-bold tracking-wider leading-none uppercase">
+            {props.title}
+          </h2>
+          <p className="mb-5 tracking-wide">{props.paragraph}</p>
+          <a href="#" className="text-md hover:underline">
+            Read More
+          </a>
+        </div>
+        {/* </ParallaxLayer> */}
 
         {imageWidth != null && imageHeight != null && (
           // <ParallaxLayer offset={0.5} speed={0.1}>
-          <div
-            className="bg-gray-900 p-4"
-            style={{ width: imageWidth + 32, height: imageHeight + 32 }}
-          >
+          <div className="bg-gray-900 p-2 w-2/3">
             <div
               style={{
                 backgroundImage: `url(${props.image})`,
-                width: imageWidth,
-                height: imageHeight,
+                paddingBottom: '47%',
               }}
-              className="bg-center bg-contain bg-no-repeat"
+              className="bg-center bg-contain bg-no-repeat w-full"
             />
           </div>
           // </ParallaxLayer>

@@ -10,7 +10,6 @@ export default () => (
       image={PirateLife}
       backgroundColor="gray-pirate-life"
       textColor="white"
-      rtl={true}
     />
   </div>
 )

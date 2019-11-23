@@ -5,6 +5,7 @@ const {
   fontSize,
   height,
   inset,
+  spacing,
 } = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -14,11 +15,12 @@ module.exports = {
         red: {
           ...colors.red,
           '500': '#E5001A',
+          'sky-foundry': '#C2242B',
         },
         blue: {
           ...colors.blue,
           nauticus: '#0A1226',
-          sine: '#06C4FF',
+          sine: '#037EC9',
         },
         gray: {
           ...colors.gray,
@@ -39,6 +41,9 @@ module.exports = {
       '7xl': '5rem',
       '8xl': '6rem',
     },
+    gradients: theme => ({
+      'black-to-light': ['to bottom', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 0)'],
+    }),
     height: theme => ({
       ...height(theme),
       '3/4': '75%',
@@ -47,12 +52,23 @@ module.exports = {
       ...inset,
       '1/2': '50%',
     },
+    spacing: {
+      ...spacing,
+      '14': '3.5rem',
+    },
     translate: {
       '1/2': '50%',
       '-1/2': '-50%',
       '-1/2-full': ['-50%', '-100%'],
     },
+    rotate: {
+      '180': '180deg',
+    },
   },
   variants: {},
-  plugins: [require('tailwindcss-transforms')()],
+  plugins: [
+    require('tailwindcss-transforms')(),
+    require('tailwindcss-transitions')(),
+    require('tailwindcss-plugins/gradients'),
+  ],
 }
