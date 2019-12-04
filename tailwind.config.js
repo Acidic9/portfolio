@@ -16,6 +16,7 @@ module.exports = {
           ...colors.red,
           '500': '#E5001A',
           'sky-foundry': '#C2242B',
+          'gondola-gondola': '#C6091E',
         },
         blue: {
           ...colors.blue,
@@ -26,6 +27,10 @@ module.exports = {
           ...colors.gray,
           '900': '#272727',
           'pirate-life': '#090909',
+        },
+        pink: {
+          ...colors.pink,
+          appliquette: '#FA6E81',
         },
       },
     },

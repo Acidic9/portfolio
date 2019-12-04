@@ -9,9 +9,20 @@ const snapConfig = {
 
 export default (el: HTMLElement) => {
   const snapObject = new ScrollSnap(el, snapConfig)
+
+  const scrollTo = (index: number) => {
+    snapObject.smoothScroll(
+      snapObject.target,
+      { x: 0, y: window.innerHeight * index },
+      () => {}
+    )
+  }
+
   snapObject.bind(() => {
     console.log('hello')
   })
 
-  return snapObject
+  window.snapObject = snapObject
+
+  return { snapObject, scrollTo }
 }

@@ -9,6 +9,8 @@ import PirateLifeSlide from '../components/slides/PirateLifeSlide'
 import PirateLifeStoreSlide from '../components/slides/PirateLifeStoreSlide'
 import SineSlide from '../components/slides/SineSlide'
 import SkyFoundrySlide from '../components/slides/SkyFoundrySlide'
+import AppliquetteSlide from '../components/slides/AppliquetteSlide'
+import GondolaGondolaSlide from '../components/slides/GondolaGondolaSlide'
 import SlideNavigation from '../components/SlideNavigation'
 import useScrollSnap from '../hooks/useScrollSnap'
 
@@ -23,10 +25,18 @@ export default () => {
   const [slideNavInvertColors, setSlideNavInvertColors] = useState<boolean>(
     false
   )
+  const [scrollTo, setScrollTo] = useState<((index: number) => void) | null>(
+    null
+  )
+  const [snapObject, setSnapObject] = useState<any | null>(null)
 
   useEffect(() => {
     if (parallaxRef && parallaxRef.container) {
-      useScrollSnap(parallaxRef.container)
+      const { snapObject: snpObj, scrollTo: sctlTo } = useScrollSnap(
+        parallaxRef.container
+      )
+      setScrollTo(sctlTo)
+      setSnapObject(snpObj)
     }
   }, [parallaxRef])
 
@@ -73,12 +83,70 @@ export default () => {
     [parallaxProjectsRef]
   )
 
+  const changeNav = useCallback(
+    (index: number) => {
+      if (snapObject) {
+        if (snapObject.animationFrame) {
+          clearTimeout(snapObject.animationFrame)
+        }
+
+        if (snapObject.scrollHandlerTimer) {
+          // we only want to call a timeout once after scrolling..
+          clearTimeout(snapObject.scrollHandlerTimer)
+        } else {
+          snapObject.scrollStart = {
+            y: snapObject.target.scrollTop,
+            x: snapObject.target.scrollLeft,
+          }
+        }
+
+        snapObject.speedDeltaX = 0
+        snapObject.speedDeltaY = 1
+
+        snapObject.target.removeEventListener(
+          'scroll',
+          snapObject.startAnimation,
+          false
+        )
+        snapObject.animating = true
+
+        const snapPoint = { x: 0, y: window.innerHeight * (index + 1) }
+
+        snapObject.smoothScroll(snapObject.target, snapPoint, () => {
+          snapObject.animating = false
+          snapObject.target.addEventListener(
+            'scroll',
+            snapObject.startAnimation,
+            false
+          )
+          snapObject.onAnimationEnd()
+        })
+
+        if (!isNaN(snapPoint.x) || !isNaN(snapPoint.y)) {
+          snapObject.scrollStart = snapPoint
+        }
+      }
+    },
+    [snapObject]
+  )
+
+  const slides = [
+    NauticusSlide,
+    PirateLifeSlide,
+    PirateLifeStoreSlide,
+    SineSlide,
+    SkyFoundrySlide,
+    AppliquetteSlide,
+    GondolaGondolaSlide,
+  ]
+
   return (
     <div className="font-roboto">
       <Navbar
         visible={showNavbar}
         activeNav={activeNavIndex}
         scrollbarWidth={scrollbarWidth}
+        onClick={changeNav}
       />
 
       <Parallax pages={3} ref={(ref: any) => setParallaxRef(ref)}>
@@ -91,30 +159,16 @@ export default () => {
         {/* <div> */}
         <ParallaxLayer offset={1} speed={0}>
           <Parallax
-            pages={4}
+            pages={slides.length}
             horizontal={true}
             scrolling={false}
             ref={(ref: any) => setParallaxProjectsRef(ref)}
           >
-            <ParallaxLayer offset={0} speed={0}>
-              <NauticusSlide />
-            </ParallaxLayer>
-
-            <ParallaxLayer offset={1} speed={0}>
-              <PirateLifeSlide />
-            </ParallaxLayer>
-
-            {/* <ParallaxLayer offset={2} speed={0}>
-              <PirateLifeStoreSlide />
-            </ParallaxLayer> */}
-
-            <ParallaxLayer offset={2} speed={0}>
-              <SineSlide />
-            </ParallaxLayer>
-
-            <ParallaxLayer offset={3} speed={0}>
-              <SkyFoundrySlide />
-            </ParallaxLayer>
+            {slides.map((slide, index) => (
+              <ParallaxLayer offset={index} speed={0}>
+                {React.createElement(slide)}
+              </ParallaxLayer>
+            ))}
           </Parallax>
 
           <ParallaxLayer
@@ -127,7 +181,7 @@ export default () => {
             }}
           >
             <SlideNavigation
-              slideCount={4}
+              slideCount={slides.length}
               inverseColors={slideNavInvertColors}
               onChange={onSlideChange}
             />
@@ -137,7 +191,7 @@ export default () => {
 
         {/* <div> */}
         <ParallaxLayer offset={2} speed={0}>
-          <div className="h-screen bg-red-500">Hello</div>
+          <div className="h-screen bg-gray-900">Hello</div>
         </ParallaxLayer>
         {/* </div> */}
       </Parallax>

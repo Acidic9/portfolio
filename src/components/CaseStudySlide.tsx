@@ -50,10 +50,10 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
   }, [imageSize])
 
   return (
-    <div className="px-14">
+    <div className="px-8 md:px-14">
       <div
         className={
-          'relative flex flex-row items-center px-8 mx-auto w-full h-screen' +
+          'relative flex flex-col md:flex-row items-center justify-center md:px-8 mx-auto w-full h-screen' +
           ' bg-' +
           (props.backgroundColor || 'white')
         }
@@ -61,7 +61,8 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
         {/* <ParallaxLayer offset={0.6} speed={0.08}> */}
         <div
           className={
-            'w-1/3 mr-20 text-left left-0 text-' + (props.textColor || 'black')
+            'md:w-1/3 md:mr-20 mb-8 md:mb-0 text-left left-0 text-' +
+            (props.textColor || 'black')
           }
         >
           <h2 className="mb-5 text-5xl font-bold tracking-wider leading-none uppercase">
@@ -76,7 +77,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
 
         {imageWidth != null && imageHeight != null && (
           // <ParallaxLayer offset={0.5} speed={0.1}>
-          <div className="bg-gray-900 p-2 w-2/3">
+          <div className="bg-gray-900 p-2 w-full md:w-2/3">
             <div
               style={{
                 backgroundImage: `url(${props.image})`,
