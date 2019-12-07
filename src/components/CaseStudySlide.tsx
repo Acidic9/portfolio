@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ParallaxLayer } from 'react-spring/renderprops-addons'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 interface Props {
   title: string
@@ -7,6 +7,7 @@ interface Props {
   image: string
   backgroundColor?: string
   textColor?: string
+  blogUrl?: string
 }
 
 const CaseStudySlide: React.FunctionComponent<Props> = props => {
@@ -42,7 +43,6 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
     } else {
       // Use width constraint (set image to max width)
       scale = maxWindowWidth / imageSize[0]
-      alert('based on width')
     }
 
     setImageWidth(imageSize[0] * scale)
@@ -58,7 +58,6 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
           (props.backgroundColor || 'white')
         }
       >
-        {/* <ParallaxLayer offset={0.6} speed={0.08}> */}
         <div
           className={
             'md:w-1/3 md:mr-20 mb-8 md:mb-0 text-left left-0 text-' +
@@ -68,15 +67,17 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
           <h2 className="mb-5 text-5xl font-bold tracking-wider leading-none uppercase">
             {props.title}
           </h2>
-          <p className="mb-5 tracking-wide">{props.paragraph}</p>
-          <a href="#" className="text-md hover:underline">
-            Read More
-          </a>
+          <p className={'tracking-wide' + (props.blogUrl ? ' mb-5' : '')}>
+            {props.paragraph}
+          </p>
+          {props.blogUrl && (
+            <AniLink fade to={props.blogUrl} duration={0.2}>
+              <span className="text-md hover:underline">Read More</span>
+            </AniLink>
+          )}
         </div>
-        {/* </ParallaxLayer> */}
 
         {imageWidth != null && imageHeight != null && (
-          // <ParallaxLayer offset={0.5} speed={0.1}>
           <div className="bg-gray-900 p-2 w-full md:w-2/3">
             <div
               style={{
@@ -86,7 +87,6 @@ const CaseStudySlide: React.FunctionComponent<Props> = props => {
               className="bg-center bg-contain bg-no-repeat w-full"
             />
           </div>
-          // </ParallaxLayer>
         )}
       </div>
     </div>

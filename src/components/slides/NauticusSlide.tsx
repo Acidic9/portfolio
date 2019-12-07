@@ -18,6 +18,7 @@ export default () => (
       image={Nauticus}
       backgroundColor="blue-nauticus"
       textColor="gray-200"
+      blogUrl="/blog/nauticus"
     />
   </div>
 )

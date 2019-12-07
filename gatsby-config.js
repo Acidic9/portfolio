@@ -10,5 +10,9 @@ module.exports = {
     description: 'Alihan Seyhun portfolio.',
     keywords: 'alihan, ari, seyhun, developer, portfolio',
   },
-  plugins: ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'],
+  plugins: [
+    'gatsby-plugin-transition-link',
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-postcss',
+  ],
 }

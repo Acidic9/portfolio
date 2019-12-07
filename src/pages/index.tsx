@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import '../styles/styles.css'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Navbar from '../components/Navbar'
@@ -30,8 +31,22 @@ export default () => {
   )
   const [snapObject, setSnapObject] = useState<any | null>(null)
 
+  // Start on slide based on # in url
   useEffect(() => {
     if (parallaxRef && parallaxRef.container) {
+      switch (window.location.hash) {
+        case '#case-studies':
+          parallaxRef.container.scrollTop = window.innerHeight
+          break
+
+        case '#contact':
+          parallaxRef.container.scrollTop = window.innerHeight * 2
+          break
+
+        default:
+          break
+      }
+
       const { snapObject: snpObj, scrollTo: sctlTo } = useScrollSnap(
         parallaxRef.container
       )
@@ -149,7 +164,11 @@ export default () => {
         onClick={changeNav}
       />
 
-      <Parallax pages={3} ref={(ref: any) => setParallaxRef(ref)}>
+      <Parallax
+        pages={3}
+        scrolling={false}
+        ref={(ref: any) => setParallaxRef(ref)}
+      >
         {/* <div> */}
         <ParallaxLayer offset={0} speed={0.3}>
           <IntroSlide />
@@ -165,7 +184,7 @@ export default () => {
             ref={(ref: any) => setParallaxProjectsRef(ref)}
           >
             {slides.map((slide, index) => (
-              <ParallaxLayer offset={index} speed={0}>
+              <ParallaxLayer offset={index} speed={0} key={index}>
                 {React.createElement(slide)}
               </ParallaxLayer>
             ))}
@@ -191,7 +210,11 @@ export default () => {
 
         {/* <div> */}
         <ParallaxLayer offset={2} speed={0}>
-          <div className="h-screen bg-gray-900">Hello</div>
+          <div className="h-screen bg-gray-900 pt-24">
+            <AniLink fade to="/blog/nauticus" duration={0.2}>
+              Hello
+            </AniLink>
+          </div>
         </ParallaxLayer>
         {/* </div> */}
       </Parallax>
