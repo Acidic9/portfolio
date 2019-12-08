@@ -3,6 +3,8 @@ import '../../styles/styles.css'
 
 import NauticusBlurred from '../../images/projects/nauticus-blurred.jpg'
 import NauticusKYC from '../../images/projects/nauticus/kyc.png'
+import NauticusDashboard from '../../images/projects/nauticus/dashboard.png'
+import NauticusHomepage from '../../images/projects/nauticus/homepage.png'
 import NauticusOrderBook from '../../images/projects/nauticus/orderbook.png'
 
 import BlogPage from '../../components/BlogPage'
@@ -22,11 +24,12 @@ export default () => {
         developed in VueJS.
       </p>
       <p className="mb-4">
-        The first week I was focusing on understanding the concepts of Vue as I
-        hadn’t heard of it prior to working at Sky Foundry. I managed to
-        understand most of the concepts and start implementing the KYC process
-        (know your customer) of Nauticus which is used to ensure users of
-        Nauticus are legitimate and may use it based on their country.
+        During the first week, I was focusing on understanding the concepts of
+        Vue as I hadn’t heard of the JS library prior to working at Sky Foundry.
+        I managed to understand most of the concepts and start implementing the
+        KYC process (know your customer) of Nauticus which is used to ensure
+        users of Nauticus are legitimate and may legally use it based on their
+        country.
       </p>
       <p className="mb-4">
         I was given a design by our designer with a diagram showing the flow of
@@ -35,9 +38,27 @@ export default () => {
       <img className="mb-4" src={NauticusKYC} alt="KYC Process" />
       <p className="mb-4">
         After working on the KYC process for a few weeks, I then moved onto
-        working on the main exchange dashboard. This is when I was working more
-        along side my lead developer implementing new features to the dashboard
-        and setting up the purchasing logic.
+        working on the main exchange dashboard.
+      </p>
+      <img className="mb-4" src={NauticusDashboard} alt="Dashboard" />
+      <p className="mb-4">
+        This is when I was working more along side my lead developer
+        implementing new features to the dashboard and setting up the purchasing
+        logic.
+      </p>
+      <p className="mb-4">
+        At this point the project had evolved into a monorepo, which ended up
+        containing almost 10 packages within the repository.
+      </p>
+      <p className="mb-4">
+        I had the honour of solely developing a few of those packages, one of
+        which was the landing page for Nauticus which used gulp and nunjucks to
+        build out the page.
+      </p>
+      <img className="mb-4" src={NauticusHomepage} alt="Homepage" />
+      <p className="mb-12">
+        The homepage had evolved through many revisions, and the image above is
+        only one of those.
       </p>
       <p className="mb-4">
         One noteworthy feature for Nauticus was the market depth graph and order
@@ -54,7 +75,7 @@ export default () => {
         second with some calculations which had to be moved into a service
         worker.
       </p>
-      <p className="mb-4">
+      <p className="mb-12">
         Over the time working on Nauticus, I discovered how incapable JavaScript
         is when it comes to complex mathematics with precision errors.
         Thankfully the next version of ES is bringing in BigInt which would’ve
