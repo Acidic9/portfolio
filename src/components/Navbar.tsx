@@ -30,7 +30,8 @@ const Navbar: React.FunctionComponent<Props> = ({
     [onClick]
   )
 
-  const isExternalPage = window.location.pathname !== '/'
+  const isExternalPage =
+    typeof window === 'undefined' ? false : window.location.pathname !== '/'
 
   return (
     <div
