@@ -60,6 +60,23 @@ export default () => {
         Thankfully the next version of ES is bringing in BigInt which would’ve
         solved many issues in the past.
       </p>
+      <p className="mb-4">
+        As time went on with the project, I was more active on the Slack server
+        talking to the team in Melbourne. I was taking a more serious part in
+        the project and started development on some backend services including
+        the authentication and KYC interaction with the databases on the Google
+        Cloud Platform.
+      </p>
+      <p className="mb-4">
+        The project took our team 9 months with public deploys happening weekly.
+        I was required to ensure every commit I made to the project didn’t break
+        a thing and as the project grew, this became more and more difficult to
+        manage.
+        <br />
+        I’m very thankful to have taken a major part in such a huge project and
+        learnt more about full stack web development than any other project
+        before.
+      </p>
     </BlogPage>
   )
 }
