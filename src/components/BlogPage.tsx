@@ -35,7 +35,7 @@ const BlogPage: React.FunctionComponent<Props> = ({
         }
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        <div className="flex justify-between items-end text-white">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end text-white">
           <div className="flex flex-col max-w-lg">
             <h1
               className={
@@ -50,12 +50,9 @@ const BlogPage: React.FunctionComponent<Props> = ({
 
           <div>
             <AniLink fade to="/#case-studies" duration={0.2}>
-              <a
-                href="#"
-                className="flex items-center text-xs tracking-wide hover:underline"
-              >
+              <span className="flex items-center text-xs tracking-wide hover:underline">
                 Browse More Projects
-              </a>
+              </span>
             </AniLink>
           </div>
         </div>

@@ -27,6 +27,23 @@ export default () => {
   const [showNavbar, setShowNavbar] = useState<boolean>(false)
   const [activeNavIndex, setActiveNavIndex] = useState<number | undefined>()
   const [scrollbarWidth, setScrollbarWidth] = useState<number>(0)
+  const [slideDuration, setSlideDuration] = useState<number>(0)
+
+  useEffect(() => {
+    if (!parallaxRef) return
+
+    switch (window.location.hash) {
+      case '#case-studies':
+        parallaxRef.scrollTo(1)
+        break
+
+      case '#contact':
+        parallaxRef.scrollTo(2)
+        break
+    }
+
+    setSlideDuration(700)
+  }, [parallaxRef])
 
   useEffect(() => {
     if (!parallaxRef) return
@@ -56,17 +73,7 @@ export default () => {
     index => {
       if (!parallaxProjectsRef) return
 
-      // if (index === 3) {
-      //   setSlideNavInvertColors(true)
-      // } else {
-      //   setSlideNavInvertColors(false)
-      // }
-
       parallaxProjectsRef.scrollTo(index)
-
-      // if (parallaxRef) {
-      // parallaxRef.scrollTo(1)
-      // }
     },
     [parallaxProjectsRef]
   )
@@ -119,7 +126,7 @@ export default () => {
         pages={3}
         scrolling={false}
         ref={(ref: any) => setParallaxRef(ref)}
-        config={{ duration: 700, easing: easeQuadInOut }}
+        config={{ duration: slideDuration, easing: easeQuadInOut }}
       >
         <ParallaxLayer offset={0} speed={0}>
           <IntroSlide onNextSlide={() => slideTo(1)} />
@@ -165,4 +172,9 @@ export default () => {
       </Parallax>
     </div>
   )
+}
+
+export const onRouteUpdate = ({ location, prevLocation }: any) => {
+  console.log('new pathname', location.pathname)
+  console.log('old pathname', prevLocation ? prevLocation.pathname : null)
 }

@@ -30,6 +30,8 @@ const Navbar: React.FunctionComponent<Props> = ({
     [onClick]
   )
 
+  const isExternalPage = window.location.pathname !== '/'
+
   return (
     <div
       className={
@@ -42,31 +44,53 @@ const Navbar: React.FunctionComponent<Props> = ({
         width: `calc(100% - ${scrollbarWidth}px)`,
       }}
     >
-      {/* <AniLink fade to="/" duration={0.2}> */}
-      <img
-        className="mb-4 md:mb-0 cursor-pointer"
-        src={AriSeyhunLogoSmall}
-        width={120}
-        onClick={onLogoClick}
-      />
-      {/* </AniLink> */}
+      {isExternalPage ? (
+        <AniLink fade to="/" duration={0.2}>
+          <img
+            className="mb-4 md:mb-0 cursor-pointer"
+            src={AriSeyhunLogoSmall}
+            width={120}
+            onClick={onLogoClick}
+          />
+        </AniLink>
+      ) : (
+        <img
+          className="mb-4 md:mb-0 cursor-pointer"
+          src={AriSeyhunLogoSmall}
+          width={120}
+          onClick={onLogoClick}
+        />
+      )}
 
       <div className="flex items-center text-white text-sm uppercase tracking-wide">
-        {navItems.map((navItem, index) => (
-          <span
-            key={index}
-            className={
-              'cursor-pointer ' +
-              (index < navItems.length - 1 ? 'mr-8' : '') +
-              (activeItem !== index ? ' opacity-50' : '')
-            }
-            onClick={() => {
-              onNavClick(index)
-            }}
-          >
-            {navItem}
-          </span>
-        ))}
+        {navItems.map((navItem, index) => {
+          const link = (
+            <span
+              key={index}
+              className={
+                'cursor-pointer ' +
+                (index < navItems.length - 1 ? 'mr-8' : '') +
+                (activeItem !== index ? ' opacity-50' : '')
+              }
+              onClick={() => {
+                onNavClick(index)
+              }}
+            >
+              {navItem}
+            </span>
+          )
+
+          if (isExternalPage) {
+            const hashes = ['#case-studies', '#contact']
+            return (
+              <AniLink fade to={`/${hashes[index]}`} duration={0.2} key={index}>
+                {link}
+              </AniLink>
+            )
+          } else {
+            return link
+          }
+        })}
       </div>
     </div>
   )
