@@ -1,0 +1,12 @@
+declare module '*.svg' {
+  export default '' as string
+}
+declare module '*.png' {
+  export default '' as string
+}
+declare module '*.jpg' {
+  export default '' as string
+}
+declare module 'gatsby-plugin-transition-link/AniLink' {
+  export default '' as any
+}

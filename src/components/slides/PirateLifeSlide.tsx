@@ -8,8 +8,6 @@ export default () => (
       title="Beer Brewery"
       paragraph="Completely custom WordPress website for the Australian based beer brewery Pirate Life."
       image={PirateLife}
-      backgroundColor="gray-pirate-life"
-      textColor="white"
     />
   </div>
 )

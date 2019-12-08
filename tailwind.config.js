@@ -47,7 +47,16 @@ module.exports = {
       '8xl': '6rem',
     },
     gradients: theme => ({
-      'black-to-light': ['to bottom', 'rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 0)'],
+      'black-to-light-down': [
+        'to bottom',
+        'rgba(0, 0, 0, 0.5)',
+        'rgba(0, 0, 0, 0)',
+      ],
+      'black-to-light-up': [
+        'to top',
+        'rgba(0, 0, 0, 0.36)',
+        'rgba(255, 255, 255, 0)',
+      ],
     }),
     height: theme => ({
       ...height(theme),
@@ -65,12 +74,21 @@ module.exports = {
       '1/2': '50%',
       '-1/2': '-50%',
       '-1/2-full': ['-50%', '-100%'],
+      '-4screen': '-4vh',
+      test: '-12px',
+      test2: '-6px) rotate(270deg',
     },
     rotate: {
+      '90': '90deg',
       '180': '180deg',
+      '270': '270deg',
     },
   },
-  variants: {},
+  variants: {
+    gradients: ['responsive', 'hover'],
+    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
+    translate: ['responsive', 'hover', 'group-hover'],
+  },
   plugins: [
     require('tailwindcss-transforms')(),
     require('tailwindcss-transitions')(),

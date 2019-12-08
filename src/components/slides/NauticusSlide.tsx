@@ -16,8 +16,6 @@ export default () => (
       built with a team across the world
       using a huge variety of technologies."
       image={Nauticus}
-      backgroundColor="blue-nauticus"
-      textColor="gray-200"
       blogUrl="/blog/nauticus"
     />
   </div>

@@ -8,8 +8,6 @@ export default () => (
       title="App Development Agency"
       paragraph="A custom WordPress site developed for the Adelaide based app development agency."
       image={Appliquette}
-      backgroundColor="pink-appliquette"
-      textColor="white"
     />
   </div>
 )

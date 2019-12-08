@@ -8,8 +8,6 @@ export default () => (
       title="Visitor Check-in"
       paragraph="A WordPress website built from the ground up with over 25+ pages."
       image={Sine}
-      backgroundColor="blue-sine"
-      textColor="white"
     />
   </div>
 )

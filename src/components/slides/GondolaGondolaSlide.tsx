@@ -8,8 +8,6 @@ export default () => (
       title="Gondola Gondola"
       paragraph="Adelaide-based famous restaurant website prodiving a custom CMS."
       image={GondolaGondola}
-      backgroundColor="red-gondola-gondola"
-      textColor="white"
     />
   </div>
 )

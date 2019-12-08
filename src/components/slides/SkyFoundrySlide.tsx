@@ -8,8 +8,6 @@ export default () => (
       title="Sky Foundry"
       paragraph="A website built for Sky Foundry agency using a custom CMS."
       image={SkyFoundry}
-      backgroundColor="red-sky-foundry"
-      textColor="white"
     />
   </div>
 )

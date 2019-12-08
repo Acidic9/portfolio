@@ -14,11 +14,11 @@ export default () => {
   return (
     <div className="bg-gray-100 font-roboto">
       <Navbar
+        navItems={['Case Studies', 'Get in Touch']}
+        activeItem={0}
         visible={true}
-        activeNav={0}
         scrollbarWidth={0}
         fixed={false}
-        onClick={() => {}}
       />
 
       <div

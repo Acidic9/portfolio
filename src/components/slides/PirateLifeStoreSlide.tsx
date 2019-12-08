@@ -8,8 +8,6 @@ export default () => (
       title="Merch Store"
       paragraph="Completely custom Shopify website selling merchandise for the PirateLife Beer Brewery."
       image={PirateLifeStore}
-      backgroundColor="black"
-      textColor="white"
     />
   </div>
 )

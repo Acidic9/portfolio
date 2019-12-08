@@ -12,10 +12,10 @@ const Blog: React.FunctionComponent<Props> = ({ exit }) => {
   return (
     <div className="font-roboto">
       <Navbar
+        navItems={['Case Studies', 'Get in Touch']}
         visible={true}
-        activeNav={0}
+        activeItem={0}
         scrollbarWidth={0}
-        onClick={() => {}}
       />
 
       <div className="pt-8"></div>
