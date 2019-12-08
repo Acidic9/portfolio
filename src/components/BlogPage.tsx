@@ -30,7 +30,7 @@ const BlogPage: React.FunctionComponent<Props> = ({
 
       <div
         className={
-          'pt-32 md:pt-40 pb-6 md:pb-16 px-8 md:px-24 mb-10' +
+          'pt-32 md:pt-40 pb-6 md:pb-16 px-8 md:px-24 mb-10 bg-center bg-cover' +
           ` bg-${backgroundColor || 'gray-800'}`
         }
         style={{ backgroundImage: `url(${backgroundImage})` }}
