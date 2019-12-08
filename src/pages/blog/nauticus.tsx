@@ -2,6 +2,8 @@ import React from 'react'
 import '../../styles/styles.css'
 
 import NauticusBlurred from '../../images/projects/nauticus-blurred.jpg'
+import NauticusKYC from '../../images/projects/nauticus/kyc.png'
+import NauticusOrderBook from '../../images/projects/nauticus/orderbook.png'
 
 import BlogPage from '../../components/BlogPage'
 
@@ -14,33 +16,49 @@ export default () => {
       subtitle="A global crypto-currency exchange app built with a team across the world using a huge variety of technologies."
     >
       <p className="mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
-        tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus
-        elit vestibulum eros, quis faucibus nunc felis ac metus. Aliquam erat
-        volutpat. Proin ut tortor eu erat facilisis convallis et in lorem. Sed
-        efficitur pretium velit sed gravida. Integer id ultricies sapien. Orci
-        varius natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Vestibulum non volutpat risus, ac scelerisque diam.
+        After only a month of working at Sky Foundry and working on small issues
+        on existing websites, my boss and lead developer decided it was time to
+        bring me onto the new project they were working on which was being
+        developed in VueJS.
       </p>
       <p className="mb-4">
-        Nulla volutpat ultricies nisl at ultrices. Etiam dapibus maximus dui sed
-        auctor. Nulla vitae arcu mattis, feugiat massa sed, volutpat libero. In
-        sit amet sapien purus. Integer eu molestie purus, sed iaculis arcu.
-        Vestibulum nec purus egestas, tincidunt nibh in, pellentesque nisl.
-        Quisque feugiat lorem eget malesuada viverra. Aenean libero ipsum,
-        convallis sed posuere ac, volutpat nec tortor. Pellentesque fringilla
-        eleifend volutpat. Pellentesque posuere, nibh in iaculis imperdiet, ex
-        neque posuere sem, a posuere lacus neque a turpis.
+        The first week I was focusing on understanding the concepts of Vue as I
+        hadn’t heard of it prior to working at Sky Foundry. I managed to
+        understand most of the concepts and start implementing the KYC process
+        (know your customer) of Nauticus which is used to ensure users of
+        Nauticus are legitimate and may use it based on their country.
       </p>
       <p className="mb-4">
-        Suspendisse potenti. In tempor ipsum risus, a elementum turpis suscipit
-        quis. Quisque ut nunc nec justo ornare fermentum. Quisque euismod mi
-        metus, eu feugiat ex feugiat at. Nunc porta auctor ultrices. In maximus
-        lacus nisl, eu elementum enim tempus ut. Pellentesque vulputate interdum
-        neque, sed tincidunt elit ullamcorper a. Ut non magna velit. Maecenas
-        cursus sagittis metus, vel commodo odio vehicula at. Phasellus tincidunt
-        purus velit, id fringilla quam efficitur in. Fusce sit amet leo lectus.
-        Proin cursus accumsan tellus a dignissim. Suspendisse ac risus dolor.
+        I was given a design by our designer with a diagram showing the flow of
+        the process.
+      </p>
+      <img className="mb-4" src={NauticusKYC} alt="KYC Process" />
+      <p className="mb-4">
+        After working on the KYC process for a few weeks, I then moved onto
+        working on the main exchange dashboard. This is when I was working more
+        along side my lead developer implementing new features to the dashboard
+        and setting up the purchasing logic.
+      </p>
+      <p className="mb-4">
+        One noteworthy feature for Nauticus was the market depth graph and order
+        book which were developed using the JavaScript canvas API for
+        performance reasons.
+      </p>
+      <img
+        className="mb-4"
+        src={NauticusOrderBook}
+        alt="Order book and market depth"
+      />
+      <p className="mb-4">
+        These sections of the site were required to update multiple times per
+        second with some calculations which had to be moved into a service
+        worker.
+      </p>
+      <p className="mb-4">
+        Over the time working on Nauticus, I discovered how incapable JavaScript
+        is when it comes to complex mathematics with precision errors.
+        Thankfully the next version of ES is bringing in BigInt which would’ve
+        solved many issues in the past.
       </p>
     </BlogPage>
   )
