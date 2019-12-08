@@ -71,11 +71,25 @@ export default () => {
     [parallaxProjectsRef]
   )
 
+  const pageHashes = ['', '#case-studies', '#contact']
+
   const slideTo = useCallback(
     (index: number) => {
       if (!parallaxRef) return
 
-      parallaxRef.scrollTo(index)
+      if (pageHashes[index] === '') {
+        history.pushState(
+          '',
+          document.title,
+          window.location.pathname + window.location.search
+        )
+      } else {
+        window.location.hash = pageHashes[index]
+      }
+
+      setTimeout(() => {
+        parallaxRef.scrollTo(index)
+      }, 10)
     },
     [parallaxRef]
   )
