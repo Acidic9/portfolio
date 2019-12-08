@@ -1,17 +1,17 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import NauticusBlurred from '../../images/projects/nauticus-blurred.jpg'
+import AppliquetteBlurred from '../../images/projects/appliquette-blurred.jpg'
 
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
     <BlogPage
-      backgroundColor="blue-nauticus"
-      backgroundImage={NauticusBlurred}
-      title="Nauticus"
-      subtitle="A global crypto-currency exchange app built with a team across the world using a huge variety of technologies."
+      backgroundColor="pink-appliquette"
+      backgroundImage={AppliquetteBlurred}
+      title="Appliquette"
+      subtitle="A custom WordPress site developed for the Adelaide based app development agency."
     >
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis

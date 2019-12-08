@@ -1,17 +1,17 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import NauticusBlurred from '../../images/projects/nauticus-blurred.jpg'
+import PirateLifeBlurred from '../../images/projects/pirate-life-blurred.jpg'
 
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
     <BlogPage
-      backgroundColor="blue-nauticus"
-      backgroundImage={NauticusBlurred}
-      title="Nauticus"
-      subtitle="A global crypto-currency exchange app built with a team across the world using a huge variety of technologies."
+      backgroundColor="gray-pirate-life"
+      backgroundImage={PirateLifeBlurred}
+      title="Pirate Life"
+      subtitle="Completely custom WordPress website for the Australian based beer brewery Pirate Life."
     >
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis

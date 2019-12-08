@@ -1,7 +1,6 @@
 import React from 'react'
-import { ParallaxLayer } from 'react-spring/renderprops-addons'
 import CaseStudySlide from '../CaseStudySlide'
-import Nauticus from '../../images/nauticus.png'
+import Nauticus from '../../images/projects/nauticus.png'
 
 export default () => (
   <div className="h-screen bg-blue-nauticus">

@@ -1,17 +1,17 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import NauticusBlurred from '../../images/projects/nauticus-blurred.jpg'
+import SkyFoundryBlurred from '../../images/projects/sky-foundry-blurred.jpg'
 
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
     <BlogPage
-      backgroundColor="blue-nauticus"
-      backgroundImage={NauticusBlurred}
-      title="Nauticus"
-      subtitle="A global crypto-currency exchange app built with a team across the world using a huge variety of technologies."
+      backgroundColor="red-sky-foundry"
+      backgroundImage={SkyFoundryBlurred}
+      title="Sky Foundry"
+      subtitle="A website built for Sky Foundry agency using a custom CMS."
     >
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
