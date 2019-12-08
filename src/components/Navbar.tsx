@@ -37,7 +37,7 @@ const Navbar: React.FunctionComponent<Props> = ({
     <div
       className={
         (fixed !== false ? 'fixed' : 'absolute') +
-        ' top-0 left-0 z-20 flex flex-col md:flex-row justify-between items-center bg-black-to-light-down w-full py-6 px-8 md:px-14 transition-opacity transition-250 transition-ease ' +
+        ' top-0 left-0 z-20 flex flex-col sm:flex-row justify-between items-center bg-black-to-light-down w-full py-6 px-8 md:px-14 transition-opacity transition-250 transition-ease ' +
         (visible ? 'opacity-100' : 'hidden opacity-0')
       }
       style={{

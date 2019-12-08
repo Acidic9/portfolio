@@ -39,7 +39,7 @@ const BlogPage: React.FunctionComponent<Props> = ({
           <div className="flex flex-col max-w-lg">
             <h1
               className={
-                'text-5xl font-bold tracking-wider leading-none uppercase' +
+                'text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider leading-none uppercase' +
                 (subtitle ? ' mb-5' : '')
               }
             >

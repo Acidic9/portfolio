@@ -15,9 +15,9 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
   blogUrl,
 }) => (
   <div className="px-8 md:px-14">
-    <div className="relative flex flex-col md:flex-row items-center justify-center md:px-8 mx-auto w-full h-screen">
-      <div className="md:w-1/3 md:mr-20 mb-8 md:mb-0 text-left left-0 text-gray-200">
-        <h2 className="mb-5 text-5xl font-bold tracking-wider leading-none uppercase">
+    <div className="relative flex flex-col lg:flex-row items-center justify-center md:px-8 mx-auto w-full h-screen">
+      <div className="lg:w-1/3 lg:mr-20 mb-8 lg:mb-0 text-left left-0 text-gray-200">
+        <h2 className="mb-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider leading-none uppercase">
           {title}
         </h2>
         <p className={'tracking-wide' + (blogUrl ? ' mb-5' : '')}>
@@ -30,7 +30,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
         )}
       </div>
 
-      <div className="bg-gray-900 p-2 w-full md:w-2/3">
+      <div className="bg-gray-900 p-2 w-full lg:w-2/3">
         <div
           style={{
             backgroundImage: `url(${image})`,
