@@ -22,6 +22,7 @@ module.exports = {
           ...colors.blue,
           nauticus: '#0A1226',
           sine: '#037EC9',
+          'ftx-battle-royale': '#131A22',
         },
         gray: {
           ...colors.gray,

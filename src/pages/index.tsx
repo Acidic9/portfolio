@@ -18,6 +18,7 @@ import SineSlide from '../components/slides/SineSlide'
 import SkyFoundrySlide from '../components/slides/SkyFoundrySlide'
 import AppliquetteSlide from '../components/slides/AppliquetteSlide'
 import GondolaGondolaSlide from '../components/slides/GondolaGondolaSlide'
+import FTXBattleRoyaleSlide from '../components/slides/FTXBattleRoyaleSlide'
 
 export default () => {
   const [parallaxRef, setParallaxRef] = useState<any | null>(null)
@@ -109,6 +110,7 @@ export default () => {
     SkyFoundrySlide,
     AppliquetteSlide,
     GondolaGondolaSlide,
+    FTXBattleRoyaleSlide,
   ]
 
   return (
