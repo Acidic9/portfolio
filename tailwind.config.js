@@ -5,6 +5,7 @@ const {
   fontSize,
   height,
   inset,
+  maxHeight,
   spacing,
 } = require('tailwindcss/defaultTheme')
 
@@ -66,6 +67,10 @@ module.exports = {
     inset: {
       ...inset,
       '1/2': '50%',
+    },
+    maxHeight: {
+      ...maxHeight,
+      '16': '4rem',
     },
     spacing: {
       ...spacing,
