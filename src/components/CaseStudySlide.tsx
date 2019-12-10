@@ -23,7 +23,11 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
         <h2 className="mb-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider leading-none uppercase">
           {title}
         </h2>
-        <p className={'tracking-wide' + (blogUrl ? ' mb-5' : '')}>
+        <p
+          className={
+            'tracking-wide' + (blogUrl || technlologies ? ' mb-5' : '')
+          }
+        >
           {paragraph}
         </p>
         {technlologies && (
