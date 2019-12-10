@@ -1,6 +1,7 @@
 import React from 'react'
 import CaseStudySlide from '../CaseStudySlide'
 import Nauticus from '../../images/projects/nauticus.png'
+import { Technology } from '../TechnologyItem'
 
 export default () => (
   <div className="h-screen bg-blue-nauticus">
@@ -16,6 +17,17 @@ export default () => (
       using a huge variety of technologies."
       image={Nauticus}
       blogUrl="/blog/nauticus"
+      technlologies={[
+        Technology.GoogleCloudPlatform,
+        Technology.Gulp,
+        Technology.Netlify,
+        Technology.NodeJS,
+        Technology.Nunjucks,
+        Technology.ReactJS,
+        Technology.SASS,
+        Technology.VueJS,
+        Technology.Webpack,
+      ]}
     />
   </div>
 )

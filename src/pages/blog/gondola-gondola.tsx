@@ -11,7 +11,7 @@ export default () => {
       backgroundColor="red-gondola-gondola"
       backgroundImage={GondolaGondolaBlurred}
       title="Gondola Gondola"
-      subtitle="Adelaide-based famous restaurant website prodiving a custom CMS."
+      subtitle="Adelaide-based famous restaurant website."
     >
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis

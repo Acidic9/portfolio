@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import TechnologyItem, { Technology } from './TechnologyItem'
 
 interface Props {
   title: string
   paragraph: string
   image: string
   blogUrl?: string
+  technlologies?: Technology[]
 }
 
 const CaseStudySlide: React.FunctionComponent<Props> = ({
@@ -13,6 +15,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
   paragraph,
   image,
   blogUrl,
+  technlologies,
 }) => (
   <div className="px-8 md:px-14">
     <div className="relative flex flex-col lg:flex-row items-center justify-center md:px-8 mx-auto w-full h-screen">
@@ -23,6 +26,17 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
         <p className={'tracking-wide' + (blogUrl ? ' mb-5' : '')}>
           {paragraph}
         </p>
+        {technlologies && (
+          <div className="flex flex-wrap items-center mb-2">
+            {technlologies
+              .sort((a, b) => a - b)
+              .map(technology => (
+                <div className="mr-6 mb-3">
+                  <TechnologyItem technology={technology} showLabel={false} />
+                </div>
+              ))}
+          </div>
+        )}
         {blogUrl && (
           <AniLink fade to={blogUrl} duration={0.2}>
             <span className="text-md hover:underline">Read More</span>
