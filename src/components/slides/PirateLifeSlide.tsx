@@ -9,7 +9,7 @@ export default () => (
       title="Pirate Life"
       paragraph="Completely custom WordPress website for the Australian based beer brewery Pirate Life."
       image={PirateLife}
-      blogUrl="/blog/pirate-life"
+      // blogUrl="/blog/pirate-life"
       technlologies={[
         Technology.Docker,
         Technology.GoogleCloudPlatform,

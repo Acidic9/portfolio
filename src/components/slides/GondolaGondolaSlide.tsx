@@ -9,7 +9,7 @@ export default () => (
       title="Gondola Gondola"
       paragraph="Adelaide-based famous restaurant website."
       image={GondolaGondola}
-      blogUrl="/blog/gondola-gondola"
+      // blogUrl="/blog/gondola-gondola"
       technlologies={[
         Technology.Netlify,
         Technology.Nunjucks,

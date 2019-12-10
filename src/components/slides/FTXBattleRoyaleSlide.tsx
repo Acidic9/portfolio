@@ -9,7 +9,7 @@ export default () => (
       title="FTX Battle Royale"
       paragraph="A marketing presenting a Battle Royale event for FTX."
       image={FTXBattleRoyale}
-      blogUrl="/blog/ftx-battle-royale"
+      // blogUrl="/blog/ftx-battle-royale"
       technlologies={[
         Technology.Netlify,
         Technology.NodeJS,

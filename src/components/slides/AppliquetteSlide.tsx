@@ -9,7 +9,7 @@ export default () => (
       title="Appliquette"
       paragraph="A custom WordPress site developed for the Adelaide based app development agency."
       image={Appliquette}
-      blogUrl="/blog/appliquette"
+      // blogUrl="/blog/appliquette"
       technlologies={[
         Technology.Docker,
         Technology.GoogleCloudPlatform,

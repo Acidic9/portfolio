@@ -9,7 +9,7 @@ export default () => (
       title="Sine"
       paragraph="A WordPress website built from the ground up with over 25+ pages."
       image={Sine}
-      blogUrl="/blog/sine"
+      // blogUrl="/blog/sine"
       technlologies={[
         Technology.Docker,
         Technology.GoogleCloudPlatform,

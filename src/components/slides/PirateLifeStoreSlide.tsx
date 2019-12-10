@@ -9,7 +9,7 @@ export default () => (
       title="Pirate Life Store"
       paragraph="Completely custom Shopify website selling merchandise for the PirateLife Beer Brewery."
       image={PirateLifeStore}
-      blogUrl="/blog/pirate-life-store"
+      // blogUrl="/blog/pirate-life-store"
       technlologies={[
         Technology.ReactJS,
         Technology.Shopify,

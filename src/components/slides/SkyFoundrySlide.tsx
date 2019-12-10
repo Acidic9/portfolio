@@ -9,7 +9,7 @@ export default () => (
       title="Sky Foundry"
       paragraph="A website built for Sky Foundry agency using a custom CMS."
       image={SkyFoundry}
-      blogUrl="/blog/sky-foundry"
+      // blogUrl="/blog/sky-foundry"
       technlologies={[
         Technology.Netlify,
         Technology.NodeJS,
