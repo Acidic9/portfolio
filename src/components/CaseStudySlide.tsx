@@ -35,7 +35,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
             {technlologies
               .sort((a, b) => a - b)
               .map(technology => (
-                <div className="mr-6 mb-3">
+                <div className="mr-4 md:mr-6 mb-3">
                   <TechnologyItem technology={technology} showLabel={false} />
                 </div>
               ))}

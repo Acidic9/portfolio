@@ -74,7 +74,7 @@ const TechnologyItem: React.FunctionComponent<Props> = ({
   return (
     <div className="flex" title={label}>
       <img
-        className={'w-5' + (showLabel === false ? '' : ' mr-1')}
+        className={'w-4 md:w-5' + (showLabel === false ? '' : ' mr-1')}
         src={logo}
       />
       {showLabel !== false && <span className="text-sm">{label}</span>}
