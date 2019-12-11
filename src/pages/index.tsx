@@ -126,7 +126,7 @@ export default () => {
 
       <Parallax
         pages={3}
-        scrolling={false}
+        scrolling={true}
         ref={(ref: any) => setParallaxRef(ref)}
         config={{ duration: slideDuration, easing: easeQuadInOut }}
       >
