@@ -4,6 +4,7 @@ import '../styles/styles.css'
 import { easeQuadInOut } from 'd3-ease'
 
 // Components
+import { useSwipeable } from 'react-swipeable'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Navbar from '../components/Navbar'
@@ -99,6 +100,19 @@ export default () => {
     [parallaxRef]
   )
 
+  const handlers = [
+    useSwipeable({
+      onSwipedUp: () => slideTo(1),
+    }),
+    useSwipeable({
+      onSwipedUp: () => slideTo(2),
+      onSwipedDown: () => slideTo(0),
+    }),
+    useSwipeable({
+      onSwipedDown: () => slideTo(1),
+    }),
+  ]
+
   // const slides = [
   //   NauticusSlide,
   //   PirateLifeSlide,
@@ -130,28 +144,32 @@ export default () => {
         config={{ duration: slideDuration, easing: easeQuadInOut }}
       >
         <ParallaxLayer offset={0} speed={0}>
-          <IntroSlide onNextSlide={() => slideTo(1)} />
+          <div {...handlers[0]}>
+            <IntroSlide onNextSlide={() => slideTo(1)} />
+          </div>
         </ParallaxLayer>
 
         <ParallaxLayer offset={1} speed={0}>
-          <Parallax
-            pages={projectIDs.length}
-            horizontal={true}
-            scrolling={false}
-            ref={(ref: any) => setParallaxProjectsRef(ref)}
-          >
-            {projectIDs.map((projectID, index) => (
-              <ParallaxLayer offset={index} speed={0} key={index}>
-                <CaseStudySlide project={projectID} />
-              </ParallaxLayer>
-            ))}
+          <div {...handlers[1]}>
+            <Parallax
+              pages={projectIDs.length}
+              horizontal={true}
+              scrolling={false}
+              ref={(ref: any) => setParallaxProjectsRef(ref)}
+            >
+              {projectIDs.map((projectID, index) => (
+                <ParallaxLayer offset={index} speed={0} key={index}>
+                  <CaseStudySlide project={projectID} />
+                </ParallaxLayer>
+              ))}
 
-            {/* {slides.map((slide, index) => (
+              {/* {slides.map((slide, index) => (
               <ParallaxLayer offset={index} speed={0} key={index}>
                 {React.createElement(slide)}
               </ParallaxLayer>
             ))} */}
-          </Parallax>
+            </Parallax>
+          </div>
 
           <ParallaxLayer
             offset={0}
@@ -170,7 +188,7 @@ export default () => {
         </ParallaxLayer>
 
         <ParallaxLayer offset={2} speed={0}>
-          <div className="h-screen bg-gray-900 pt-24">
+          <div {...handlers[2]} className="h-screen bg-gray-900 pt-24">
             <AniLink fade to="/blog/nauticus" duration={0.2}>
               Hello
             </AniLink>
