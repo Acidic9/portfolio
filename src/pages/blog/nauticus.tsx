@@ -10,7 +10,7 @@ import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage project="nauticus">
+    <BlogPage project="nauticus" readMinutes={4} dateWritten="12 December">
       <p className="mb-4">
         After only a month of working at Sky Foundry and working on small issues
         on existing websites, my boss and lead developer decided it was time to

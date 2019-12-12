@@ -5,7 +5,7 @@ import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage project="pirate-life">
+    <BlogPage project="pirate-life" readMinutes={5}>
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
         tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus
