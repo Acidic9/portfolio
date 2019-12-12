@@ -12,6 +12,7 @@ import SlideNavigation from '../components/SlideNavigation'
 import IntroSlide from '../components/IntroSlide'
 import projects from '../projects'
 import CaseStudySlide from '../components/CaseStudySlide'
+import GetInTouchSlide from '../components/GetInTouchSlide'
 
 export default () => {
   const [parallaxRef, setParallaxRef] = useState<any | null>(null)
@@ -196,10 +197,8 @@ export default () => {
         </ParallaxLayer>
 
         <ParallaxLayer offset={2} speed={0}>
-          <div {...handlers[2]} className="h-screen bg-gray-900 pt-24">
-            <AniLink fade to="/blog/nauticus" duration={0.2}>
-              Hello
-            </AniLink>
+          <div {...handlers[2]}>
+            <GetInTouchSlide />
           </div>
         </ParallaxLayer>
       </Parallax>

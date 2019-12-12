@@ -6,6 +6,7 @@ const {
   height,
   inset,
   maxHeight,
+  minHeight,
   spacing,
 } = require('tailwindcss/defaultTheme')
 
@@ -30,6 +31,7 @@ module.exports = {
         gray: {
           ...colors.gray,
           '900': '#272727',
+          '950': '#101010',
         },
       },
     },
@@ -68,6 +70,11 @@ module.exports = {
     maxHeight: {
       ...maxHeight,
       '16': '4rem',
+      '161px': '161px',
+    },
+    minHeight: {
+      ...minHeight,
+      '65px': '64px',
     },
     spacing: {
       ...spacing,
