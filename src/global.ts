@@ -1,8 +1,8 @@
 export interface Project {
   title: string
   description: string
-  screenshot: string
-  banner: string
+  screenshot: string | { [key: number]: string }
+  banner: string | { [key: number]: string }
   technologies: Technology[]
   disableBlog?: boolean
 }

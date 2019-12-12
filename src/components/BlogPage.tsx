@@ -28,6 +28,7 @@ import {
   FacebookIcon,
   LinkedinIcon,
 } from 'react-share'
+import useResponsiveImage from '../hooks/useResponsiveImage'
 
 interface Props {
   project: string
@@ -42,6 +43,13 @@ const BlogPage: React.FunctionComponent<Props> = ({
   children,
 }) => {
   const { title, description, banner, technologies } = projects[projectID]
+
+  let bannerImage = null
+  if (typeof banner === 'string') {
+    bannerImage = banner
+  } else {
+    bannerImage = useResponsiveImage(banner)
+  }
 
   const shareUrl =
     typeof window === 'undefined' ? 'ariseyhun.com' : window.location.href
@@ -61,7 +69,7 @@ const BlogPage: React.FunctionComponent<Props> = ({
           'pt-32 md:pt-40 pb-6 md:pb-16 px-8 md:px-24 mb-8 md:mb-10 bg-center bg-cover' +
           ` bg-project-${projectID}`
         }
-        style={{ backgroundImage: `url(${banner})` }}
+        style={{ backgroundImage: `url(${bannerImage})` }}
       >
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end text-white">
           <div className="flex flex-col max-w-lg">

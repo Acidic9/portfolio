@@ -3,6 +3,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import TechnologyItem from './TechnologyItem'
 import projects from '../projects'
 import hyphenCase from '../utils/hyphen-case'
+import useResponsiveImage from '../hooks/useResponsiveImage'
 
 interface Props {
   project: string
@@ -18,6 +19,13 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
     technologies,
     disableBlog,
   } = projects[projectID]
+
+  let screenshotImage = null
+  if (typeof screenshot === 'string') {
+    screenshotImage = screenshot
+  } else {
+    screenshotImage = useResponsiveImage(screenshot)
+  }
 
   return (
     <div className={'h-screen bg-project-' + projectID}>
@@ -54,7 +62,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
           <div className="bg-gray-900 p-2 w-full lg:w-2/3">
             <div
               style={{
-                backgroundImage: `url(${screenshot})`,
+                backgroundImage: `url(${screenshotImage})`,
                 paddingBottom: '47%',
               }}
               className="bg-center bg-contain bg-no-repeat w-full"
