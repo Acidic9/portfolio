@@ -43,6 +43,9 @@ const BlogPage: React.FunctionComponent<Props> = ({
 }) => {
   const { title, description, banner, technologies } = projects[projectID]
 
+  const shareUrl =
+    typeof window === 'undefined' ? 'ariseyhun.com' : window.location.href
+
   return (
     <div className="bg-gray-100 font-roboto">
       <Navbar
@@ -111,19 +114,19 @@ const BlogPage: React.FunctionComponent<Props> = ({
           <span className="flex">
             <TwitterShareButton
               className="mr-2"
-              url={window.location.href}
+              url={shareUrl}
               title={`${title} • ${description}\n\n`}
             >
               <TwitterIcon size={24} round={true} />
             </TwitterShareButton>
             <FacebookShareButton
               className="mr-2"
-              url={window.location.href}
+              url={shareUrl}
               quote={`${title} • ${description}\n\n`}
             >
               <FacebookIcon size={24} round={true} />
             </FacebookShareButton>
-            <LinkedinShareButton url={window.location.href}>
+            <LinkedinShareButton url={shareUrl}>
               <LinkedinIcon size={24} round={true} />
             </LinkedinShareButton>
           </span>
