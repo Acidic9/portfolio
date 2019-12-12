@@ -57,6 +57,7 @@ export default () => {
           'template_xrOqLy9Z',
           {
             from_name: name,
+            from_email: email,
             to_name: 'Ari',
             message_html: message,
           },
