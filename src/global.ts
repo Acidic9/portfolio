@@ -4,6 +4,7 @@ export interface Project {
   screenshot: string
   banner: string
   technologies: Technology[]
+  disableBlog?: boolean
 }
 
 export enum Technology {

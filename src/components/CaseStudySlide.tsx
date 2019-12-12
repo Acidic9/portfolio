@@ -11,7 +11,13 @@ interface Props {
 const CaseStudySlide: React.FunctionComponent<Props> = ({
   project: projectID,
 }) => {
-  const { title, description, screenshot, technologies } = projects[projectID]
+  const {
+    title,
+    description,
+    screenshot,
+    technologies,
+    disableBlog,
+  } = projects[projectID]
 
   return (
     <div className={'h-screen bg-project-' + projectID}>
@@ -25,7 +31,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
               {description}
             </p>
             {technologies && (
-              <div className="flex flex-wrap items-center mb-2">
+              <div className="flex flex-wrap flex-1 items-center mb-2">
                 {technologies
                   .sort((a, b) => a - b)
                   .map(technology => (
@@ -38,9 +44,11 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
                   ))}
               </div>
             )}
-            <AniLink fade to={`/blog/${projectID}`} duration={0.2}>
-              <span className="text-md hover:underline">Read More</span>
-            </AniLink>
+            {disableBlog !== true && (
+              <AniLink fade to={`/blog/${projectID}`} duration={0.2}>
+                <span className="text-md hover:underline">Read More</span>
+              </AniLink>
+            )}
           </div>
 
           <div className="bg-gray-900 p-2 w-full lg:w-2/3">

@@ -60,6 +60,7 @@ const projects: { [key: string]: Project } = {
       Technology.Webpack,
       Technology.Wordpress,
     ],
+    disableBlog: true,
   },
 
   'pirate-life-store': {
@@ -69,6 +70,7 @@ const projects: { [key: string]: Project } = {
     screenshot: PirateLifeStoreScreenshot,
     banner: PirateLifeStoreScreenshotBlurred,
     technologies: [Technology.ReactJS, Technology.Shopify, Technology.Webpack],
+    disableBlog: true,
   },
 
   sine: {
@@ -86,6 +88,7 @@ const projects: { [key: string]: Project } = {
       Technology.Webpack,
       Technology.Wordpress,
     ],
+    disableBlog: true,
   },
 
   'sky-foundry': {
@@ -99,6 +102,7 @@ const projects: { [key: string]: Project } = {
       Technology.VueJS,
       Technology.Webpack,
     ],
+    disableBlog: true,
   },
 
   appliquette: {
@@ -115,6 +119,7 @@ const projects: { [key: string]: Project } = {
       Technology.Webpack,
       Technology.Wordpress,
     ],
+    disableBlog: true,
   },
 
   'gondola-gondola': {
@@ -123,6 +128,7 @@ const projects: { [key: string]: Project } = {
     screenshot: GondolaGondolaScreenshot,
     banner: GondolaGondolaScreenshotBlurred,
     technologies: [Technology.Netlify, Technology.Nunjucks, Technology.Webpack],
+    disableBlog: true,
   },
 
   'ftx-battle-royale': {
@@ -138,6 +144,7 @@ const projects: { [key: string]: Project } = {
       Technology.TypeScript,
       Technology.Webpack,
     ],
+    disableBlog: true,
   },
 }
 
