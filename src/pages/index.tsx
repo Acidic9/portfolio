@@ -127,7 +127,7 @@ export default () => {
   const projectIDs = Object.keys(projects)
 
   return (
-    <div className="font-roboto">
+    <div className="font-roboto" style={{ touchAction: 'none' }}>
       <Navbar
         navItems={['Case Studies', 'Get in Touch']}
         activeItem={activeNavIndex}
