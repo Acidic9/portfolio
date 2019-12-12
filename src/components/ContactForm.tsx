@@ -93,7 +93,7 @@ export default () => {
   if (showSuccess) {
     return (
       <div className="w-full max-w-sm text-center">
-        <div className="flex mb-4">
+        <div className="flex mb-4 items-center">
           <img className="w-6 mr-4" src={CheckMark} />
           <span>Message successfully sent!</span>
         </div>
