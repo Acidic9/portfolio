@@ -6,9 +6,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'Alihan Seyhun',
-    description: 'Alihan Seyhun portfolio.',
-    keywords: 'alihan, ari, seyhun, developer, portfolio',
+    title: 'Ari Seyhun',
+    description: 'Ari Seyhun portfolio.',
+    keywords: 'ari, alihan, seyhun, developer, portfolio',
   },
   plugins: [
     'gatsby-plugin-transition-link',
