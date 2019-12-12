@@ -1,18 +1,11 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import PirateLifeBlurred from '../../images/projects/pirate-life-blurred.jpg'
-
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage
-      backgroundColor="gray-pirate-life"
-      backgroundImage={PirateLifeBlurred}
-      title="Pirate Life"
-      subtitle="Completely custom WordPress website for the Australian based beer brewery Pirate Life."
-    >
+    <BlogPage project="pirate-life">
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
         tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus

@@ -1,18 +1,11 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import PirateLifeStoreBlurred from '../../images/projects/pirate-life-store-blurred.jpg'
-
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage
-      backgroundColor="black"
-      backgroundImage={PirateLifeStoreBlurred}
-      title="Pirate Life Store"
-      subtitle="Completely custom Shopify website selling merchandise for the PirateLife Beer Brewery."
-    >
+    <BlogPage project="pirate-life-store">
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
         tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus

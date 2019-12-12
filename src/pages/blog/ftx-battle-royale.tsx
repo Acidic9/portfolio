@@ -1,18 +1,11 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import FTXBattleRoyaleBlurred from '../../images/projects/ftx-battle-royale-blurred.jpg'
-
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage
-      backgroundColor="blue-ftx-battle-royale"
-      backgroundImage={FTXBattleRoyaleBlurred}
-      title="FTX Battle Royale"
-      subtitle="A marketing presenting a Battle Royale event for FTX."
-    >
+    <BlogPage project="ftx-battle-royale">
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
         tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus

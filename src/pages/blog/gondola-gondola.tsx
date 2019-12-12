@@ -1,18 +1,11 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import GondolaGondolaBlurred from '../../images/projects/gondola-gondola-blurred.jpg'
-
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage
-      backgroundColor="red-gondola-gondola"
-      backgroundImage={GondolaGondolaBlurred}
-      title="Gondola Gondola"
-      subtitle="Adelaide-based famous restaurant website."
-    >
+    <BlogPage project="gondola-gondola">
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
         tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus

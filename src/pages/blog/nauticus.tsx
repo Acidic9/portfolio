@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import NauticusBlurred from '../../images/projects/nauticus-blurred.jpg'
 import NauticusKYC from '../../images/projects/nauticus/kyc.png'
 import NauticusDashboard from '../../images/projects/nauticus/dashboard.png'
 import NauticusHomepage from '../../images/projects/nauticus/homepage.png'
@@ -11,12 +10,7 @@ import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage
-      backgroundColor="blue-nauticus"
-      backgroundImage={NauticusBlurred}
-      title="Nauticus"
-      subtitle="A global crypto-currency exchange app built with a team across the world using a huge variety of technologies."
-    >
+    <BlogPage project="nauticus">
       <p className="mb-4">
         After only a month of working at Sky Foundry and working on small issues
         on existing websites, my boss and lead developer decided it was time to

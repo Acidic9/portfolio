@@ -13,26 +13,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        red: {
-          ...colors.red,
-          '500': '#E5001A',
+        project: {
           'sky-foundry': '#C2242B',
           'gondola-gondola': '#C6091E',
-        },
-        blue: {
-          ...colors.blue,
           nauticus: '#0A1226',
           sine: '#037EC9',
           'ftx-battle-royale': '#131A22',
+          'pirate-life': '#090909',
+          'pirate-life-store': '#000000',
+          appliquette: '#FA6E81',
+        },
+        red: {
+          ...colors.red,
+          '500': '#E5001A',
         },
         gray: {
           ...colors.gray,
           '900': '#272727',
-          'pirate-life': '#090909',
-        },
-        pink: {
-          ...colors.pink,
-          appliquette: '#FA6E81',
         },
       },
     },

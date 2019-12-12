@@ -16,24 +16,6 @@ import VueJSLogo from '../images/technlogies/vuejs.svg'
 import WebpackLogo from '../images/technlogies/webpack.svg'
 import WordpressLogo from '../images/technlogies/wordpress.svg'
 
-export enum Technology {
-  Docker,
-  GoogleCloudPlatform,
-  Gulp,
-  Netlify,
-  NodeJS,
-  Nunjucks,
-  PHP,
-  ReactJS,
-  SASS,
-  Shopify,
-  Twig,
-  TypeScript,
-  VueJS,
-  Webpack,
-  Wordpress,
-}
-
 const technlogies = [
   ['Docker', DockerLogo],
   ['Google Cloud Platform', GoogleCloudPlatformLogo],

@@ -3,21 +3,18 @@ import '../styles/styles.css'
 
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Navbar from './Navbar'
+import projects from '../projects'
 
 interface Props {
-  backgroundColor?: string
-  backgroundImage?: string
-  title: string
-  subtitle?: string
+  project: string
 }
 
 const BlogPage: React.FunctionComponent<Props> = ({
-  backgroundColor,
-  backgroundImage,
-  title,
-  subtitle,
+  project: projectID,
   children,
 }) => {
+  const { title, description, banner } = projects[projectID]
+
   return (
     <div className="bg-gray-100 font-roboto">
       <Navbar
@@ -31,21 +28,21 @@ const BlogPage: React.FunctionComponent<Props> = ({
       <div
         className={
           'pt-32 md:pt-40 pb-6 md:pb-16 px-8 md:px-24 mb-10 bg-center bg-cover' +
-          ` bg-${backgroundColor || 'gray-800'}`
+          ` bg-project-${projectID}`
         }
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        style={{ backgroundImage: `url(${banner})` }}
       >
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end text-white">
           <div className="flex flex-col max-w-lg">
             <h1
               className={
                 'text-3xl sm:text-4xl md:text-5xl font-bold tracking-wider leading-none uppercase' +
-                (subtitle ? ' mb-5' : '')
+                (description ? ' mb-5' : '')
               }
             >
               {title}
             </h1>
-            {subtitle && <p className="mb-5 tracking-wide">{subtitle}</p>}
+            {description && <p className="mb-5 tracking-wide">{description}</p>}
           </div>
 
           <div>

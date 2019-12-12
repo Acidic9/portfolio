@@ -8,17 +8,9 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Navbar from '../components/Navbar'
 import SlideNavigation from '../components/SlideNavigation'
-
-// Slides
 import IntroSlide from '../components/IntroSlide'
-import NauticusSlide from '../components/slides/NauticusSlide'
-import PirateLifeSlide from '../components/slides/PirateLifeSlide'
-import PirateLifeStoreSlide from '../components/slides/PirateLifeStoreSlide'
-import SineSlide from '../components/slides/SineSlide'
-import SkyFoundrySlide from '../components/slides/SkyFoundrySlide'
-import AppliquetteSlide from '../components/slides/AppliquetteSlide'
-import GondolaGondolaSlide from '../components/slides/GondolaGondolaSlide'
-import FTXBattleRoyaleSlide from '../components/slides/FTXBattleRoyaleSlide'
+import projects from '../projects'
+import CaseStudySlide from '../components/CaseStudySlide'
 
 export default () => {
   const [parallaxRef, setParallaxRef] = useState<any | null>(null)
@@ -30,17 +22,24 @@ export default () => {
   const [scrollbarWidth, setScrollbarWidth] = useState<number>(0)
   const [slideDuration, setSlideDuration] = useState<number>(0)
 
+  const pageHashes = ['', '#case-studies', '#contact']
+
   useEffect(() => {
     if (!parallaxRef) return
 
-    switch (window.location.hash) {
-      case '#case-studies':
-        parallaxRef.scrollTo(1)
-        break
-
-      case '#contact':
-        parallaxRef.scrollTo(2)
-        break
+    if (window.location.hash.length > 1) {
+      const hashIndex = pageHashes.findIndex(
+        val => val === window.location.hash
+      )
+      if (hashIndex > 0) {
+        parallaxRef.scrollTo(hashIndex)
+      } else {
+        history.pushState(
+          '',
+          document.title,
+          window.location.pathname + window.location.search
+        )
+      }
     }
 
     setSlideDuration(700)
@@ -79,8 +78,6 @@ export default () => {
     [parallaxProjectsRef]
   )
 
-  const pageHashes = ['', '#case-studies', '#contact']
-
   const slideTo = useCallback(
     (index: number) => {
       if (!parallaxRef) return
@@ -102,16 +99,18 @@ export default () => {
     [parallaxRef]
   )
 
-  const slides = [
-    NauticusSlide,
-    PirateLifeSlide,
-    PirateLifeStoreSlide,
-    SineSlide,
-    SkyFoundrySlide,
-    AppliquetteSlide,
-    GondolaGondolaSlide,
-    FTXBattleRoyaleSlide,
-  ]
+  // const slides = [
+  //   NauticusSlide,
+  //   PirateLifeSlide,
+  //   PirateLifeStoreSlide,
+  //   SineSlide,
+  //   SkyFoundrySlide,
+  //   AppliquetteSlide,
+  //   GondolaGondolaSlide,
+  //   FTXBattleRoyaleSlide,
+  // ]
+
+  const projectIDs = Object.keys(projects)
 
   return (
     <div className="font-roboto">
@@ -136,16 +135,22 @@ export default () => {
 
         <ParallaxLayer offset={1} speed={0}>
           <Parallax
-            pages={slides.length}
+            pages={projectIDs.length}
             horizontal={true}
             scrolling={false}
             ref={(ref: any) => setParallaxProjectsRef(ref)}
           >
-            {slides.map((slide, index) => (
+            {projectIDs.map((projectID, index) => (
+              <ParallaxLayer offset={index} speed={0} key={index}>
+                <CaseStudySlide project={projectID} />
+              </ParallaxLayer>
+            ))}
+
+            {/* {slides.map((slide, index) => (
               <ParallaxLayer offset={index} speed={0} key={index}>
                 {React.createElement(slide)}
               </ParallaxLayer>
-            ))}
+            ))} */}
           </Parallax>
 
           <ParallaxLayer
@@ -158,7 +163,7 @@ export default () => {
             }}
           >
             <SlideNavigation
-              slideCount={slides.length}
+              slideCount={projectIDs.length}
               onChange={onSlideChange}
             />
           </ParallaxLayer>

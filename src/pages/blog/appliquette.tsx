@@ -1,18 +1,11 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import AppliquetteBlurred from '../../images/projects/appliquette-blurred.jpg'
-
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage
-      backgroundColor="pink-appliquette"
-      backgroundImage={AppliquetteBlurred}
-      title="Appliquette"
-      subtitle="A custom WordPress site developed for the Adelaide based app development agency."
-    >
+    <BlogPage project="appliquette">
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
         tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus

@@ -1,18 +1,11 @@
 import React from 'react'
 import '../../styles/styles.css'
 
-import SineBlurred from '../../images/projects/sine-blurred.jpg'
-
 import BlogPage from '../../components/BlogPage'
 
 export default () => {
   return (
-    <BlogPage
-      backgroundColor="blue-sine"
-      backgroundImage={SineBlurred}
-      title="Sine"
-      subtitle="A WordPress website built from the ground up with over 25+ pages."
-    >
+    <BlogPage project="sine">
       <p className="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis
         tincidunt tellus. Pellentesque congue, ipsum id ornare volutpat, lacus
