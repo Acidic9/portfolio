@@ -31,7 +31,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
               {description}
             </p>
             {technologies && (
-              <div className="flex flex-wrap flex-1 items-center mb-2">
+              <div className="flex flex-wrap flex-1 items-center">
                 {technologies
                   .sort((a, b) => a - b)
                   .map(technology => (
