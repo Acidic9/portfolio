@@ -81,7 +81,7 @@ const BlogPage: React.FunctionComponent<Props> = ({
               </p>
             )}
             {technologies && (
-              <div className="flex flex-wrap items-center max-h-16 mb-2">
+              <div className="flex flex-wrap items-center mb-2">
                 {technologies
                   .sort((a, b) => a - b)
                   .map(technology => (
