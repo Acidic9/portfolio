@@ -3,14 +3,17 @@ import ChevronLeftSolid from '../images/chevron-left-solid.svg'
 
 interface Props {
   slideCount: number
+  activeSlide: number
+  setActiveSlide: (index: number) => void
   onChange?: (index: number) => void
 }
 
 const SlideNavigation: React.FunctionComponent<Props> = ({
   slideCount,
+  activeSlide,
+  setActiveSlide,
   onChange,
 }) => {
-  const [activeSlide, setActiveSlide] = useState<number>(0)
   const [dots, setDots] = useState<JSX.Element[]>([])
 
   useEffect(() => {

@@ -22,6 +22,7 @@ export default () => {
   const [activeNavIndex, setActiveNavIndex] = useState<number | undefined>()
   const [scrollbarWidth, setScrollbarWidth] = useState<number>(0)
   const [slideDuration, setSlideDuration] = useState<number>(0)
+  const [activeSlide, setActiveSlide] = useState<number>(0)
 
   const pageHashes = ['', '#case-studies', '#contact']
 
@@ -100,6 +101,22 @@ export default () => {
     [parallaxRef]
   )
 
+  const projectIDs = Object.keys(projects)
+
+  const caseStudySwipe = useCallback(
+    (dir: -1 | 1) => {
+      if (!parallaxProjectsRef) return
+
+      const newIndex = Math.max(
+        0,
+        Math.min(projectIDs.length - 1, parallaxProjectsRef.offset + dir)
+      )
+      parallaxProjectsRef.scrollTo(newIndex)
+      setActiveSlide(newIndex)
+    },
+    [parallaxProjectsRef]
+  )
+
   const handlers = [
     useSwipeable({
       onSwipedUp: () => slideTo(1),
@@ -107,24 +124,13 @@ export default () => {
     useSwipeable({
       onSwipedUp: () => slideTo(2),
       onSwipedDown: () => slideTo(0),
+      onSwipedLeft: () => caseStudySwipe(1),
+      onSwipedRight: () => caseStudySwipe(-1),
     }),
     useSwipeable({
       onSwipedDown: () => slideTo(1),
     }),
   ]
-
-  // const slides = [
-  //   NauticusSlide,
-  //   PirateLifeSlide,
-  //   PirateLifeStoreSlide,
-  //   SineSlide,
-  //   SkyFoundrySlide,
-  //   AppliquetteSlide,
-  //   GondolaGondolaSlide,
-  //   FTXBattleRoyaleSlide,
-  // ]
-
-  const projectIDs = Object.keys(projects)
 
   return (
     <div className="font-roboto" style={{ touchAction: 'none' }}>
@@ -182,6 +188,8 @@ export default () => {
           >
             <SlideNavigation
               slideCount={projectIDs.length}
+              activeSlide={activeSlide}
+              setActiveSlide={setActiveSlide}
               onChange={onSlideChange}
             />
           </ParallaxLayer>
