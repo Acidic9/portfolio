@@ -4,6 +4,7 @@ import '../styles/styles.css'
 import { easeQuadInOut } from 'd3-ease'
 
 // Components
+import { Helmet } from 'react-helmet'
 import { useSwipeable } from 'react-swipeable'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
@@ -24,8 +25,10 @@ export default () => {
   const [scrollbarWidth, setScrollbarWidth] = useState<number>(0)
   const [slideDuration, setSlideDuration] = useState<number>(0)
   const [activeSlide, setActiveSlide] = useState<number>(0)
+  const [titleSuffix, setTitleSuffix] = useState<string | null>(null)
 
   const pageHashes = ['', '#case-studies', '#contact']
+  const projectIDs = Object.keys(projects)
 
   useEffect(() => {
     if (!parallaxRef) return
@@ -36,6 +39,18 @@ export default () => {
       )
       if (hashIndex > 0) {
         parallaxRef.scrollTo(hashIndex)
+
+        switch (hashIndex) {
+          case 1:
+            setTitleSuffix(
+              `${projects[projectIDs[activeSlide]].title} Case Study`
+            )
+            break
+
+          case 2:
+            setTitleSuffix('Get in Touch')
+            break
+        }
       } else {
         history.pushState(
           '',
@@ -77,6 +92,7 @@ export default () => {
       if (!parallaxProjectsRef) return
 
       parallaxProjectsRef.scrollTo(index)
+      setTitleSuffix(`${projects[projectIDs[index]].title} Case Study`)
     },
     [parallaxProjectsRef]
   )
@@ -84,6 +100,22 @@ export default () => {
   const slideTo = useCallback(
     (index: number) => {
       if (!parallaxRef) return
+
+      switch (index) {
+        case 0:
+          setTitleSuffix(null)
+          break
+
+        case 1:
+          setTitleSuffix(
+            `${projects[projectIDs[activeSlide]].title} Case Study`
+          )
+          break
+
+        case 2:
+          setTitleSuffix('Get in Touch')
+          break
+      }
 
       if (pageHashes[index] === '') {
         history.pushState(
@@ -99,10 +131,8 @@ export default () => {
         parallaxRef.scrollTo(index)
       }, 10)
     },
-    [parallaxRef]
+    [parallaxRef, activeSlide, projectIDs, projects]
   )
-
-  const projectIDs = Object.keys(projects)
 
   const caseStudySwipe = useCallback(
     (dir: -1 | 1) => {
@@ -135,6 +165,26 @@ export default () => {
 
   return (
     <div className="font-roboto" style={{ touchAction: 'none' }}>
+      <Helmet>
+        <title>
+          Ari Seyhun{titleSuffix != null ? ` - ${titleSuffix}` : ''}
+        </title>
+        <meta
+          name="description"
+          content="Ari Seyhun - Developer • Designer • Entrepreneur - Whether your big project idea is an e-commerce store, complex app, or new software - get in touch and we can discuss it further."
+        ></meta>
+        <meta
+          name="keywords"
+          content="ari,seyhun,web,developer,designer,ecommerce,wordpress,development"
+        ></meta>
+        <meta name="robots" content="index, follow"></meta>
+        <meta
+          http-equiv="Content-Type"
+          content="text/html; charset=utf-8"
+        ></meta>
+        <meta name="language" content="English"></meta>
+      </Helmet>
+
       <Navbar
         navItems={['Case Studies', 'Get in Touch']}
         activeItem={activeNavIndex}

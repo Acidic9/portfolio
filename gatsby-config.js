@@ -14,5 +14,6 @@ module.exports = {
     'gatsby-plugin-transition-link',
     'gatsby-plugin-typescript',
     'gatsby-plugin-postcss',
+    'gatsby-plugin-react-helmet',
   ],
 }

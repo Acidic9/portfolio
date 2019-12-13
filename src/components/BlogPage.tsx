@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/styles.css'
 
+import { Helmet } from 'react-helmet'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Navbar from './Navbar'
 import projects from '../projects'
@@ -56,6 +57,24 @@ const BlogPage: React.FunctionComponent<Props> = ({
 
   return (
     <div className="bg-gray-100 font-roboto">
+      <Helmet>
+        <title>Ari Seyhun - {title} Blog</title>
+        <meta
+          name="description"
+          content={`Ari Seyhun - Developer • Designer • Entrepreneur - Read the development story about ${title}`}
+        ></meta>
+        <meta
+          name="keywords"
+          content={`ari,seyhun,web,developer,designer,ecommerce,wordpress,development,${title.toLowerCase()}`}
+        ></meta>
+        <meta name="robots" content="index, follow"></meta>
+        <meta
+          http-equiv="Content-Type"
+          content="text/html; charset=utf-8"
+        ></meta>
+        <meta name="language" content="English"></meta>
+      </Helmet>
+
       <Navbar
         navItems={['Case Studies', 'Get in Touch']}
         activeItem={0}
