@@ -1,5 +1,6 @@
 @import './fonts.css';
 
+/* purgecss start ignore */
 @tailwind base;
 
 input:-webkit-autofill,
@@ -17,5 +18,6 @@ select:-webkit-autofill:focus {
 }
 
 @tailwind components;
+/* purgecss end ignore */
 
 @tailwind utilities;
