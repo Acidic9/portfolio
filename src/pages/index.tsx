@@ -3,10 +3,15 @@ import '../styles/styles.css'
 
 import { easeQuadInOut } from 'd3-ease'
 
+// Context
+import WebpSupportedContext from '../context/WebpSupportedContext'
+
+// Hooks
+import useWebpSupported from '../hooks/useWebpSupported'
+
 // Components
 import { Helmet } from 'react-helmet'
 import { useSwipeable } from 'react-swipeable'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Navbar from '../components/Navbar'
 import SlideNavigation from '../components/SlideNavigation'
@@ -16,6 +21,7 @@ import CaseStudySlide from '../components/CaseStudySlide'
 import GetInTouchSlide from '../components/GetInTouchSlide'
 
 export default () => {
+  const { webpSupported } = useWebpSupported()
   const [parallaxRef, setParallaxRef] = useState<any | null>(null)
   const [parallaxProjectsRef, setParallaxProjectsRef] = useState<any | null>(
     null
@@ -165,98 +171,95 @@ export default () => {
 
   return (
     <div className="font-roboto" style={{ touchAction: 'none' }}>
-      <Helmet>
-        <title>
-          Ari Seyhun{titleSuffix != null ? ` - ${titleSuffix}` : ''}
-        </title>
-        <meta
-          name="description"
-          content="Ari Seyhun - Developer • Designer • Entrepreneur - Whether your big project idea is an e-commerce store, complex app, or new software - get in touch and we can discuss it further."
-        ></meta>
-        <meta
-          name="keywords"
-          content="ari,seyhun,web,developer,designer,ecommerce,wordpress,development"
-        ></meta>
-        <meta name="robots" content="index, follow"></meta>
-        <meta
-          http-equiv="Content-Type"
-          content="text/html; charset=utf-8"
-        ></meta>
-        <meta name="language" content="English"></meta>
-      </Helmet>
+      <WebpSupportedContext.Provider value={{ webpSupported }}>
+        <Helmet>
+          <title>
+            Ari Seyhun{titleSuffix != null ? ` - ${titleSuffix}` : ''}
+          </title>
+          <meta
+            name="description"
+            content="Ari Seyhun - Developer • Designer • Entrepreneur - Whether your big project idea is an e-commerce store, complex app, or new software - get in touch and we can discuss it further."
+          ></meta>
+          <meta
+            name="keywords"
+            content="ari,seyhun,web,developer,designer,ecommerce,wordpress,development"
+          ></meta>
+          <meta name="robots" content="index, follow"></meta>
+          <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=utf-8"
+          ></meta>
+          <meta name="language" content="English"></meta>
+        </Helmet>
 
-      <Navbar
-        navItems={['Case Studies', 'Get in Touch']}
-        activeItem={activeNavIndex}
-        visible={showNavbar}
-        scrollbarWidth={scrollbarWidth}
-        onClick={index => slideTo(index + 1)}
-        onLogoClick={() => slideTo(0)}
-      />
+        <Navbar
+          navItems={['Case Studies', 'Get in Touch']}
+          activeItem={activeNavIndex}
+          visible={showNavbar}
+          scrollbarWidth={scrollbarWidth}
+          onClick={index => slideTo(index + 1)}
+          onLogoClick={() => slideTo(0)}
+        />
 
-      <Parallax
-        pages={3}
-        scrolling={false}
-        ref={(ref: any) => setParallaxRef(ref)}
-        config={{ duration: slideDuration, easing: easeQuadInOut }}
-      >
-        <ParallaxLayer offset={0} speed={0}>
-          <div {...handlers[0]}>
-            <IntroSlide onNextSlide={() => slideTo(1)} />
-          </div>
-        </ParallaxLayer>
+        <Parallax
+          pages={3}
+          scrolling={false}
+          ref={(ref: any) => setParallaxRef(ref)}
+          config={{ duration: slideDuration, easing: easeQuadInOut }}
+        >
+          <ParallaxLayer offset={0} speed={0}>
+            <div {...handlers[0]}>
+              <IntroSlide onNextSlide={() => slideTo(1)} />
+            </div>
+          </ParallaxLayer>
 
-        <ParallaxLayer offset={1} speed={0}>
-          <div {...handlers[1]}>
-            <Parallax
-              pages={projectIDs.length}
-              horizontal={true}
-              scrolling={false}
-              ref={(ref: any) => setParallaxProjectsRef(ref)}
-            >
-              {projectIDs.map((projectID, index) => (
-                <ParallaxLayer offset={index} speed={0} key={index}>
-                  <CaseStudySlide project={projectID} />
-                </ParallaxLayer>
-              ))}
+          <ParallaxLayer offset={1} speed={0}>
+            <div {...handlers[1]}>
+              <Parallax
+                pages={projectIDs.length}
+                horizontal={true}
+                scrolling={false}
+                ref={(ref: any) => setParallaxProjectsRef(ref)}
+              >
+                {projectIDs.map((projectID, index) => (
+                  <ParallaxLayer offset={index} speed={0} key={index}>
+                    <CaseStudySlide project={projectID} />
+                  </ParallaxLayer>
+                ))}
 
-              {/* {slides.map((slide, index) => (
+                {/* {slides.map((slide, index) => (
               <ParallaxLayer offset={index} speed={0} key={index}>
                 {React.createElement(slide)}
               </ParallaxLayer>
             ))} */}
-            </Parallax>
-          </div>
+              </Parallax>
+            </div>
 
-          <ParallaxLayer
-            offset={0}
-            speed={0}
-            style={{
-              height: 'auto',
-              bottom: 56,
-              width: '100% !important',
-            }}
-          >
-            <SlideNavigation
-              slideCount={projectIDs.length}
-              activeSlide={activeSlide}
-              setActiveSlide={setActiveSlide}
-              onChange={onSlideChange}
-            />
+            <ParallaxLayer
+              offset={0}
+              speed={0}
+              style={{
+                height: 'auto',
+                bottom: 56,
+                width: '100% !important',
+              }}
+            >
+              <SlideNavigation
+                slideCount={projectIDs.length}
+                activeSlide={activeSlide}
+                setActiveSlide={setActiveSlide}
+                onChange={onSlideChange}
+              />
+            </ParallaxLayer>
           </ParallaxLayer>
-        </ParallaxLayer>
 
-        <ParallaxLayer offset={2} speed={0}>
-          <div {...handlers[2]}>
-            <GetInTouchSlide />
-          </div>
-        </ParallaxLayer>
-      </Parallax>
+          <ParallaxLayer offset={2} speed={0}>
+            <div {...handlers[2]}>
+              <GetInTouchSlide />
+            </div>
+          </ParallaxLayer>
+        </Parallax>
+      </WebpSupportedContext.Provider>
     </div>
   )
-}
-
-export const onRouteUpdate = ({ location, prevLocation }: any) => {
-  console.log('new pathname', location.pathname)
-  console.log('old pathname', prevLocation ? prevLocation.pathname : null)
 }

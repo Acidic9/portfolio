@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import TechnologyItem from './TechnologyItem'
 import projects from '../projects'
 import hyphenCase from '../utils/hyphen-case'
 import useResponsiveImage from '../hooks/useResponsiveImage'
+import WebpSupportedContext from '../context/WebpSupportedContext'
 
 interface Props {
   project: string
@@ -20,12 +21,7 @@ const CaseStudySlide: React.FunctionComponent<Props> = ({
     disableBlog,
   } = projects[projectID]
 
-  let screenshotImage = null
-  if (typeof screenshot === 'string') {
-    screenshotImage = screenshot
-  } else {
-    screenshotImage = useResponsiveImage(screenshot)
-  }
+  const screenshotImage = useResponsiveImage(screenshot)
 
   return (
     <div className={'h-screen bg-project-' + projectID}>

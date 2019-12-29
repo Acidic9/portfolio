@@ -1,10 +1,12 @@
+export type ImageTypes = { [key: number]: { [key: string]: string } }
+
 export interface Project {
   title: string
   description: string
-  screenshot: string | { [key: number]: string }
-  banner: string | { [key: number]: string }
+  screenshot: ImageTypes
+  banner: ImageTypes
   technologies: Technology[]
-  disableBlog?: boolean
+  disableBlog: boolean
 }
 
 export enum Technology {

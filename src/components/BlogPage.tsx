@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/styles.css'
 
 import { Helmet } from 'react-helmet'
@@ -10,26 +10,12 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-  PinterestShareButton,
-  VKShareButton,
-  OKShareButton,
-  RedditShareButton,
-  TumblrShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  ViberShareButton,
-  WorkplaceShareButton,
-  LineShareButton,
-  PocketShareButton,
-  InstapaperShareButton,
-  EmailShareButton,
   TwitterIcon,
   FacebookIcon,
   LinkedinIcon,
 } from 'react-share'
 import useResponsiveImage from '../hooks/useResponsiveImage'
+import useWebpSupported from '../hooks/useWebpSupported'
 
 interface Props {
   project: string
@@ -44,13 +30,7 @@ const BlogPage: React.FunctionComponent<Props> = ({
   children,
 }) => {
   const { title, description, banner, technologies } = projects[projectID]
-
-  let bannerImage = null
-  if (typeof banner === 'string') {
-    bannerImage = banner
-  } else {
-    bannerImage = useResponsiveImage(banner)
-  }
+  const bannerImage = useResponsiveImage(banner)
 
   const shareUrl =
     typeof window === 'undefined' ? 'ariseyhun.com' : window.location.href

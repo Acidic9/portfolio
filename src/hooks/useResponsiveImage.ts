@@ -1,10 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { ImageTypes } from '../global'
+import WebpSupportedContext from '../context/WebpSupportedContext'
 
-export default (images: { [width: number]: string }) => {
-  const [activeImage, setActiveImage] = useState<string>()
+export default (images: ImageTypes) => {
+  const [activeImage, setActiveImage] = useState<string | null>(null)
+  const { webpSupported } = useContext(WebpSupportedContext)
 
   useEffect(() => {
     if (typeof window === 'undefined') {
+      return
+    }
+
+    if (webpSupported == null) {
       return
     }
 
@@ -22,14 +29,15 @@ export default (images: { [width: number]: string }) => {
         imageIndex = widths.length - 1
       }
 
-      setActiveImage(images[widths[imageIndex]])
+      const extension = webpSupported ? 'webp' : 'jpg'
+      setActiveImage(images[widths[imageIndex]][extension])
     }
 
     handler()
 
     window.addEventListener('resize', handler)
     return () => window.removeEventListener('resize', handler)
-  }, [images])
+  }, [images, webpSupported])
 
   return activeImage
 }
